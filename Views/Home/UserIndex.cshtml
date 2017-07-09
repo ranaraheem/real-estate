@@ -1,0 +1,383 @@
+﻿
+@{
+    ViewBag.Title = "UserIndex";
+    Layout = "~/Views/Shared/_LoginUser.cshtml";
+    }
+
+<div class="container">
+    <div class="header-bottom">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <nav class="menu menu--francisco">
+                        <ul class="nav navbar-nav menu__list">
+                            <li class="menu__item menu__item--current"><a href="~/Home/Index" class="menu__link"><span class="menu__helper">Home</span></a></li>
+                            <li class="menu__item"><a href="~/Home/Properties" class="menu__link"><span class="menu__helper">Properties</span></a></li>
+                            <li class="menu__item"><a href="~/Home/Favorites" class="menu__link"><span class="menu__helper">Favorites</span></a></li>
+                            <li class="menu__item"><a href="~/Home/About" class="menu__link"><span class="menu__helper">About</span></a></li>
+                        </ul>
+                    </nav>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/">
+                            <i class="icon"></i>
+                        </a>
+                        <a href="https://twitter.com/?lang=en"><i class="icon1"></i></a>
+                        <a href="https://plus.google.com/#"><i class="icon2"></i></a>
+                        <a href="https://www.linkedin.com/uas/login"><i class="icon3"></i></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div><!-- /.navbar-collapse -->
+                <!-- /.container-fluid -->
+            </div>
+        </nav>
+    </div>
+</div>
+<!--header-->
+<!--................................................................-->
+<!--banner-->
+<div class="banner-section">
+    <div class="slider">
+        <div class="callbacks_container">
+            <ul class="rslides" id="slider">
+                <li>
+                    <img src="~/Content/images/ba1.jpg" alt="property" href="properties.html">
+                    <div class="caption">
+                        <h3>Our Prime Properties</h3>
+                        <p>A fractional designation uses rectangular surveying to correctly describe the land in sections. Metes and Bounds: This form of description uses references, such as streets and rivers to identify each point of the property (north, south, east, and west). Lot and Block Survey: The newest land description system seen.</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="~/Content/images/ba2.jpg" alt="property" href="properties.html">
+                    <div class="caption">
+                        <h3>Our Prime Properties</h3>
+                        <p>A fractional designation uses rectangular surveying to correctly describe the land in sections. Metes and Bounds: This form of description uses references, such as streets and rivers to identify each point of the property (north, south, east, and west). Lot and Block Survey: The newest land description system seen.</p>
+                    </div>
+                </li>
+                <li>
+                    <img src="~/Content/images/ba3.jpg" alt="property" href="properties.html">
+                    <div class="caption">
+                        <h3>Our Prime Properties</h3>
+                        <p>A fractional designation uses rectangular surveying to correctly describe the land in sections. Metes and Bounds: This form of description uses references, such as streets and rivers to identify each point of the property (north, south, east, and west). Lot and Block Survey: The newest land description system seen.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--banner-->
+<!--................................................................-->
+<div class="content">
+    <div class="serach-w3agile">
+        <div class="container">
+            <h3 class="tittle">Search properties</h3>
+            <div class="place-grids">
+                <div class="col-md-2 place-grid">
+                    <h5>Location</h5>
+                    <select class="sel" id="location">
+                        <option value="">All Locations</option>
+                        <option value="">New Jersey</option>
+                        <option value="">New York</option>
+                        <option value="">Australia</option>
+                        <option value="">Canada</option>
+                        <option value="">India</option>
+                    </select>
+                </div>
+                <div class="col-md-2 place-grid">
+                    <h5>Type</h5>
+                    <select class="sel" id="type">
+                        <option value="">All Types</option>
+                        <option value="">A</option>
+                        <option value="">B</option>
+                        <option value="">C</option>
+                        <option value="">D</option>
+                        <option value="">E</option>
+                    </select>
+                </div>
+                <div class="col-md-2 place-grid">
+                    <h5> Price</h5>
+                    <select class="sel" id="price">
+                        <option value="">Price</option>
+                        <option value="">$4000</option>
+                        <option value="">$5000</option>
+                        <option value="">$6000</option>
+                        <option value="">$7000</option>
+                        <option value="">$8000</option>
+                        <option value="">$9000</option>
+                    </select>
+                </div>
+                <div class="col-md-2 place-grid">
+                    <h5>Bed Rooms</h5>
+                    <select class="sel" id="bed">
+                        <option value="">Any</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                        <option value="">5</option>
+                    </select>
+                </div>
+                <div class="col-md-2 place-grid">
+                    <h5>Time</h5>
+                    <select class="sel" id="time">
+                        <option value="">Any</option>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                        <option value="">5</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2 place-grid">
+                    <button id="searchButton" onclick="SearchProprty();">Search </button>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--................................................................-->
+
+
+<div class="popular-w3">
+    <div class="container">
+        <h2 class="tittle">Most Popular</h2>
+        <div class="popular-grids">
+            <div class="col-md-4 popular-grid">
+                <h4>Property 1 </h4>
+                <img src="~/Content/images/a.jpg" class="img-responsive" alt="property" />
+                <div class="popular-text">
+                    <h5>Dream Property</h5>
+                    <a href="properties.html" class="button">$4000</a>
+                    <a href="favorites.html" class="button" style="background-color:orange;">Add To Favorites</a>
+                    <div class="detail-bottom">
+                        <p>A fractional designation uses rectangular surveying to correctly describe the land in sections...</p>
+                        <ul>
+                            <li class="text-info">Property Type </li>
+                            <li class="text-info1">Apartment</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Sq Ft</li>
+                            <li class="text-info1">05</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Baths</li>
+                            <li class="text-info1">03</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Beds</li>
+                            <li class="text-info1">04</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Parking</li>
+                            <li class="text-info1">03</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                        <ul>
+                            <li class="text-info">City / Town</li>
+                            <li class="text-info1">USA</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 popular-grid">
+                <h4>Property 2 </h4>
+                <img src="~/Content/images/a1.jpg" class="img-responsive" alt="property" />
+                <div class="popular-text">
+                    <h5>Dream Property</h5>
+                    <a href="properties.html" class="button">$5000</a>
+                    <a href="favorites.html" class="button" style="background-color:orange;">Add To Favorites</a>
+                    <div class="detail-bottom">
+                        <p>A fractional designation uses rectangular surveying to correctly describe the land in sections...</p>
+                        <ul>
+                            <li class="text-info">Property Type </li>
+                            <li class="text-info1">Office</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Sq Ft</li>
+                            <li class="text-info1">04</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Baths</li>
+                            <li class="text-info1">03</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Beds</li>
+                            <li class="text-info1">04</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Parking</li>
+                            <li class="text-info1">03</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                        <ul>
+                            <li class="text-info">City / Town</li>
+                            <li class="text-info1">UK</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 popular-grid">
+                <h4>Property 3</h4>
+                <img src="~/Content/images/a2.jpg" class="img-responsive" alt="property" />
+                <div class="popular-text">
+                    <h5>Dream Property</h5>
+                    <a href="properties.html" class="button">$6000</a>
+                    <a href="favorites.html" class="button" style="background-color:orange;">Add To Favorites</a>
+                    <div class="detail-bottom">
+                        <p>A fractional designation uses rectangular surveying to correctly describe the land in sections...</p>
+                        <ul>
+                            <li class="text-info">Property Type </li>
+                            <li class="text-info1">Villa</li>
+                            <div class="clearfix"></div>
+                        </ul><ul>
+                            <li class="text-info">Sq Ft</li>
+                            <li class="text-info1">04</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Baths</li>
+                            <li class="text-info1">03</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Beds</li>
+                            <li class="text-info1">04</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                        <ul>
+                            <li class="text-info">Parking</li>
+                            <li class="text-info1">03</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                        <ul>
+                            <li class="text-info">City / Town</li>
+                            <li class="text-info1">USA</li>
+                            <div class="clearfix"></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--popular-->
+<!--high properties-->
+<div class="properties-w3ls">
+    <div class="container">
+        <div class="properties-grids">
+            <div class="col-md-6 properties-grid">
+                <div id="owl-demo" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+                    <div class="owl-wrapper-outer">
+                        <div class="owl-wrapper" style="width: 2640px; left: 0px; display: block; transition: all 800ms ease; transform: translate3d(-880px, 0px, 0px);">
+                            <div class="owl-item" style="width: 440px;">
+                                <div class="item">
+                                    <a href="Properties"> <img src="~/Content/images/p1.jpg" class="img-responsive" alt="property"> </a>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 440px;">
+                                <div class="item">
+                                    <a href="Properties"> <img src="~/Content/images/p2.jpg" class="img-responsive" alt="property"> </a>
+                                </div>
+                            </div>
+                            <div class="owl-item" style="width: 440px;">
+                                <div class="item">
+                                    <a href="Properties"> <img src="~/Content/images/p3.jpg" class="img-responsive" alt="property"> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="owl-controls clickable"><div class="owl-pagination"><div class="owl-page"><span class=""></span></div><div class="owl-page"><span class=""></span></div><div class="owl-page active"><span class=""></span></div></div></div>
+                </div>
+            </div>
+            <div class="col-md-6 properties-grid1">
+                <h3 class="tittle">Highly Properties</h3>
+                <div class="care">
+                    <div class="left-grid">
+                        <p>01</p>
+                    </div>
+                    <div class="right-grid">
+                        <h4>Prime Properties</h4>
+                        <p>A fractional designation uses rectangular surveying to correctly describe the land in sections. Metes and Bounds: This form of description uses references, such as streets and rivers to identify each point of the property (north, south, east, and west). Lot and Block Survey: The newest land description system seen...</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="care">
+                    <div class="left-grid">
+                        <p>02</p>
+                    </div>
+                    <div class="right-grid">
+                        <h4>Prime Properties</h4>
+                        <p>A fractional designation uses rectangular surveying to correctly describe the land in sections. Metes and Bounds: This form of description uses references, such as streets and rivers to identify each point of the property (north, south, east, and west). Lot and Block Survey: The newest land description system seen...</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<!--high properties-->
+
+
+<script type="text/javascript">
+
+    function SearchProprty() {
+
+        var e = document.getElementById("price");
+        var strUser = e.options[e.selectedIndex].text;
+
+        if (strUser == "$4000") {
+            window.location = "Property1";
+        }
+        else if (strUser == "$5000") {
+            window.location = "Property2";
+        }
+        else if (strUser == "$6000") {
+            window.location = "Property3";
+        }
+        else if (strUser == "$7000") {
+            window.location = "Property4";
+        }
+        else if (strUser == "$8000") {
+            window.location = "Property5";
+        }
+        else if (strUser == "$9000") {
+            window.location = "Property6";
+        }
+        else {
+            alert("Kindly Select All The Fields !");
+        }
+
+    }
+
+</script>

@@ -1,0 +1,142 @@
+﻿@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container" style="margin-left:8%" >
+    <div id="userVerification" hidden="hidden">
+
+        <div class="dropdown" style="float:left; margin-top:-10%; margin-bottom:-15%;">
+
+            <i class="btn btn-success dropdown-toggle fa fa-gear" data-toggle="dropdown" aria-haspopup="true" style="margin-top:-3px">
+                    
+            </i>
+
+            <div class="dropdown-menu" style="font-size:1em; min-width:100px; cursor: pointer;">
+                <a class="dropdown-item" style="color:black" id="all" onclick="displaysUsers(0)" ><div class="fa fa-eye" style="padding-left:15px"><span style="padding-left:7px">All</span></div></a>
+
+                <a class="dropdown-item" id="verified" onclick="displaysUsers(1)" ><div class=" fa fa-check" style="padding-left: 15px; color: green"><span style="padding-left:6px; color:black">Verified</span></div></a>
+
+                <a class="dropdown-item" id="unverified" style="color:red" onclick="displaysUsers(2)"><div class=" fa fa-close" style="padding-left:15px"><span style="padding-left: 10px; color: black">Unverified</span></div></a>
+
+            </div>
+            
+        </div>
+        <input type="hidden" id="getSelectedOption" />
+        <span id="usertable">
+            
+            @{
+                Html.RenderPartial("UsersData");
+            }
+        </span>
+
+        <div class="clearfix"></div>
+
+        
+
+    </div>
+    <div id="contentManagement" hidden="hidden">
+        <button class="btn btn-success  fa fa-filter" data-toggle="modal" data-target="#myModal" style="margin-top:-5%; float:left; margin-left:-6%"></button>
+        <div id="myModal" class="modal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class=" modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Filter Results</h4>
+
+                    </div>
+                    <div class="modal-body">
+                        <div style="padding: 1% 5% 1% 5%;">
+                            <div class="form-group">
+
+                                Email:<input type="email" class="form-control" id="email" /><br />
+
+                                State | City:<select class="form-control">
+                                                 <option onclick="state(-1, -1)" style="font-weight:bold; color:black;">All</option>
+                                    @{  EAD_Project.Models.Database1Entities db = new EAD_Project.Models.Database1Entities();
+
+  List<EAD_Project.Models.state> state = db.states.ToList();
+
+  foreach (EAD_Project.Models.state st in state)
+  {
+        <option onclick="state(@st.stateId, -1)" style="font-weight:bold; color:black;">@st.stateName</option>
+    
+
+      var query = from cty in db.cities where cty.stateId == st.stateId select cty;
+      foreach (var obj in query)
+      {
+                                            <option onclick="state(-1, @obj.cityId)" style="padding-left:15px; ">@obj.cityName</option>
+                                          }
+
+                                            
+
+                                        
+                                      }
+                                    }
+
+
+                                </select><br />
+       Category | SubCategory:<select class="form-control">
+                                  <option onclick="category(-1, -1)" style="font-weight:bold; color:black;">All</option>
+
+        @{
+
+    List<EAD_Project.Models.category> category = db.categories.ToList();
+
+    foreach (EAD_Project.Models.category cg in category)
+    {
+        <option onclick="category(@cg.categoryId, -1)" style="font-weight:bold; color:black;">@cg.categoryName</option>
+
+
+
+        var query = from subCat in db.subCategories where subCat.categoryId == cg.categoryId select subCat;
+
+        foreach (var obj in query)
+        {
+
+                <option onclick="category(-1, @obj.subCategoryId)" style="padding-left:15px;">@obj.subCategoryName</option>
+        
+            }                                
+        }
+        }
+                                    
+                                </select><br />
+                                Sold:<input type="checkbox" value="0" id="sold" style="margin-left:2%;"><br />
+                                <input type="button" value="Filter" style="color:green; float:right" onclick="filter()" />
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <span id="contentData">
+            @{Html.RenderPartial("ContentManagement");}
+        </span>
+        @{
+            Html.RenderPartial("ModalSingle");
+        }
+
+
+        <form method="post" action="contentTable" id="filterForm">
+            <input type="hidden" name="email" id="frmEmail" />
+
+            <input type="hidden" value="-1" name="catId" id="frmCatId" />
+
+            <input type="hidden" value="-1" name="subCateg" id="frmSubCategId" />
+
+            <input type="hidden" value="-1" name="city" id="frmCityId" />
+            <input type="hidden" value="-1" name="state" id="frmStateId" />
+            <input type="hidden" name="sold" value="0" id="frmSold" />
+        </form>
+
+    </div>
+    <div id="siteManagement" hidden="hidden">
+
+
+        @{Html.RenderPartial("SiteManagement");}
+        
+     </div>
+</div>
+

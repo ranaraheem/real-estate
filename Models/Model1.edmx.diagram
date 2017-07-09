@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0ed8f2570d24485f900bcb804c8a8bb3" Name="Diagram1">
+        <EntityTypeShape EntityType="Database1Model.city" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.type" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.user" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Database1Model.ad" Width="1.5" PointX="0.75" PointY="10" />
+        <EntityTypeShape EntityType="Database1Model.favourite" Width="1.5" PointX="7.375" PointY="6.625" />
+        <EntityTypeShape EntityType="Database1Model.image" Width="1.5" PointX="3" PointY="16.625" />
+        <EntityTypeShape EntityType="Database1Model.sortedAd" Width="1.5" PointX="8.375" PointY="2.25" />
+        <AssociationConnector Association="Database1Model.FK_favourite_ToAds" />
+        <AssociationConnector Association="Database1Model.FK_images_ToAdss" />
+        <AssociationConnector Association="Database1Model.FK_sortedAd_ToAd" />
+        <AssociationConnector Association="Database1Model.FK_sortedAd_ToCity" />
+        <AssociationConnector Association="Database1Model.FK_favourite_ToUsers" />
+        <AssociationConnector Association="Database1Model.FK_sortedAd_ToType" />
+        <AssociationConnector Association="Database1Model.FK_sortedAd_ToUser" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

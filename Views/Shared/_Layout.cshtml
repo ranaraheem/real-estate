@@ -1,0 +1,273 @@
+﻿@model Real_State.Models.user
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Real Estate</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://
+            .googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <!--Draggable -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <!--Draggable -->
+    <!--css-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="JQuery Project" />
+    <!--................................................................-->
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+               setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1);}
+    </script>
+    <link rel="stylesheet" href="~/Content/css/flexslider.css" type="text/css" media="screen" />
+    <!--................................................................-->
+    <!--js-->
+    <script src="~/Scripts/js/jquery.min.js"></script>
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <!--js-->
+    <!--.......-->
+    <!--webfonts-->
+    <link href='//fonts.googleapis.com/css?family=Josefin+Sans:400,700italic,700,600italic,600,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!--webfonts-->
+    <!--................................................................-->
+
+
+
+    <script src="~/Scripts/responsiveslides.min.js"></script>
+
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <link rel="stylesheet" href="~/Content/css/flexslider.css" type="text/css" media="screen" />
+    <!--js-->
+    <script src="~/Scripts/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!--js-->
+    <!--................................................................-->
+    <!--webfonts-->
+    <link href='//fonts.googleapis.com/css?family=Josefin+Sans:400,700italic,700,600italic,600,400italic,300italic,300,100italic,100' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!--webfonts-->
+    <script src="~/Scripts/responsiveslides.min.js"></script>
+    <script>
+        $(function () {
+            $("#slider").responsiveSlides({
+                auto: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+                pager: true,
+            });
+        });
+    </script>
+    <link href="~/Content/css/owl.carousel.css" rel="stylesheet">
+    <script src="~/Scripts/js/owl.carousel.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                items: 1,
+                lazyLoad: true,
+                autoPlay: true,
+                navigation: false,
+                navigationText: false,
+                pagination: true,
+            });
+        });
+    </script>
+
+  
+
+
+</head>
+
+
+
+
+<body>
+
+    <!--................................................................-->
+    <div class="header" id="home">
+        <div class="header-top">
+            <div class="container">
+                <div class="head-top">
+                    <div class="indicate">
+                        <i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i><a href="About">London</a>
+                    </div>
+                    <div class="deatils">
+                        <ul>
+                            <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal">Sign In</a></li>
+                            <li><i class="glyphicon glyphicon-lock" aria-hidden="true"></i><a href="#" data-toggle="modal" data-target="#myModal1">Register</a></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="logo">
+                    <h1><a href="Index">JQuery Project<span>Real Estate</span></a></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!--................................................................-->
+    <div>
+        @RenderBody()
+    </div>    
+        <!--footer-->
+        <div class="footer-section">
+            <div class="container">
+                <div class="footer-grids">
+                    <div class="col-md-3 footer-grid">
+                        <h4>About </h4>
+                        <p>A fractional designation uses rectangular surveying to correctly describe the land in sections. Metes and Bounds: This form of description uses references, such as streets and rivers ...</p>
+                    </div>
+                    <div class="col-md-3 footer-grid">
+                        <h4>Property Types</h4>
+                        <ul>
+                            <li>Property 1 </li>
+                            <li>Property 2 </li>
+                            <li>Property 3 </li>
+                            <li>Property 4 </li>
+                            <li>Property 5 </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 footer-grid">
+                        <h4>Useful links</h4>
+                        <ul>
+                            <li><a href="Index">Home</a></li>
+                            <li><a href="About">Properties</a></li>
+                            <li><a href="Services">Favourites</a></li>
+                            <li><a href="Contact">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-3 footer-grid">
+                        <h4>Contacts</h4>
+                        <ul>
+                            <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>1 234 567 890</li>
+                            <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:example@mail.com"> example@mail.com</a></li>
+                            <li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1398 W El Camino Real</li>
+                            <li><i class="glyphicon glyphicon-time" aria-hidden="true"></i>Mon-Sat 8:00 am to 8:00 pm</li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+
+            </div>
+        </div>
+        <!--footer-->
+
+        <!--copy-->
+        <div class="copy-section">
+            <div class="container">
+                <p>&copy; 2016 JQuery Project. All rights reserved </p>
+            </div>
+        </div>
+        <!--copy-->
+
+        <!--signin-->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-info">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body real-spa">
+                        <div class="login-grids">
+                            <div class="login">
+                                <div class="login-right">
+                                    <form action="~/Home/Login" method="post">
+                                        <h3>Sign In</h3>
+                                        <input type="text" name="email" value="Enter your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your Email';}" required="">
+                                        <input type="password" name="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+                                        <h4><a href="#">Forgot password</a> / <a href="#">Create new password</a></h4>
+                                        <div class="single-bottom">
+                                            <input type="checkbox" id="brand" value="">
+                                            <label for="brand"><span></span>Remember Me.</label>
+                                        </div>
+                                        <input type="submit" value="Sign In">
+                                    </form>
+                                </div>
+                            </div>
+                            <p>By logging in you agree to our <a href="#">Terms</a> and <a href="#">Conditions</a> and <a href="#">Privacy Policy</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--signin-->
+
+        <!--Register-->
+        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-info">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body real-spa">
+                        <div class="login-grids">
+                            <div class="login">
+                                <div class="login-right">
+                                    <form action="~/Home/Register" method="post">
+                                        <h3>Register </h3>
+                                        <input type="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+                                        <input type="text" name="Phone" value="Mobile number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mobile number';}" required="">
+                                        <input type="text" name="Email" value="Email id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email id';}" required="">
+                                        <input type="password" name="Password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+
+                                        <input type="submit" value="Register Now">
+                                    </form>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <p>By logging in you agree to our <a href="#">Terms</a> and <a href="#">Conditions</a> and <a href="#">Privacy Policy</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Register-->
+
+
+    <script type="text/javascript">
+
+        function SearchProprty() {
+
+            var e = document.getElementById("price");
+            var strUser = e.options[e.selectedIndex].text;
+
+            if (strUser == "$4000") {
+                window.location = "Property1";
+            }
+            else if (strUser == "$5000") {
+                window.location = "Property2";
+            }
+            else if (strUser == "$6000") {
+                window.location = "Property3";
+            }
+            else if (strUser == "$7000") {
+                window.location = "Property4";
+            }
+            else if (strUser == "$8000") {
+                window.location = "Property5";
+            }
+            else if (strUser == "$9000") {
+                window.location = "Property6";
+            }
+            else {
+                alert("Kindly Select All The Fields !");
+            }
+
+        }
+
+    </script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,128 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="clearfix"></div>
+    <div id="contentData">
+        @{Html.RenderPartial("contentTable");}
+    
+    </div>
+
+
+  
+    <script type="text/javascript">
+        var stateCity = {stateId : -1, cityId: -1};
+        var CategSubCat = {categId : -1, subCateg: -1};
+        var sold = 0;
+        function category(cat, sub){
+            $('#frmCatId').val(cat);
+            $('#frmSubCategId').val(sub);
+
+        }
+        function state(st, ct){
+            $('#frmStateId').val(st);
+            $('#frmCityId').val(ct);
+            }
+        function filter() {
+            $('#frmEmail').val($('#email').val());
+            if(document.getElementById("sold").checked)
+                $('#frmSold').val(1);
+            else
+                $('#frmSold').val(0);
+
+           
+            var settings = {
+               
+                type: "POST",
+                url: "contentTable",
+                data: $('#filterForm').serialize(),
+                success: function (res) {
+                    filterResult(res);
+                },
+                error: function (res) {
+                    filterResult(res);
+                }
+
+
+            };
+           
+            $.ajax(settings);
+
+            function filterResult(res) {
+                $('#myModal').modal('hide');
+                $('#contentData').html(res);
+            }
+        }
+    </script>
+
+    <script type="text/javascript">
+        function Delete(id){
+            $('#'+id).hide();
+
+            var obj = { "adId": id };
+            var settings = {
+
+                type: "POST",
+                url: "delete",
+                dataType: 'json',
+                data: obj,
+                success:function(resp) {
+                },
+                error: function (resp) { }
+            };
+           
+            $.ajax(settings);
+
+        }
+    </script>
+    <script type="text/javascript">
+        function viewAd(id) {
+
+
+            var obj = { "id": id };
+            var settings = {
+
+                type: "POST",
+                url: "viewAd",
+                dataType: 'json',
+                data: obj,
+                success:function(resp) {
+                    test(resp);
+
+                },
+                error: function (resp) {
+                    test(resp);
+                }
+
+
+            };
+            $.ajax(settings);
+
+
+        }
+        function test(responce) {
+
+
+            $('#adTitle').html(responce.Title);
+
+            $('#adDescription').html(responce.Description);
+            var date = new Date(parseInt(responce.date.substr(6)));
+
+            $('#adDate').html(date.toDateString());
+            $('#adPrice').html(responce.price);
+            $('#adState').html(responce.state);
+            $('#adCity').html(responce.city);
+            $('#adPhone').html(responce.contact);
+            var res = "";
+
+            responce.list.forEach(function (item) {
+                res += "<li>" +"<img src=\"~/Uploads/" + item +"\" ></img>"  + "</li>";
+
+            });
+            $('#adImage').html(res);
+
+            console.log(res);
+        }
+    </script>
+
+

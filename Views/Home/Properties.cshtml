@@ -1,0 +1,77 @@
+﻿@model List<Real_State.Controllers.Property>
+@{
+    ViewBag.Title = "Properties";
+    Layout = "~/Views/Shared/_PropertyLayout.cshtml";
+}
+
+    <div class="popular-w3">
+        <div class="container">
+            <h2 class="tittle">Our Properties</h2>
+            <div class="popular-grids">
+                @{
+                    int count = 1;
+                        foreach (var p in Model) { 
+                
+                            <div class="col-md-4 popular-grid" id="@p.Ad.Id">
+                            <h4>Property @count</h4>
+                             @{
+                            if (p.Image.Count() > 0)
+                            {
+                                <img src="~/Content/images/@p.Image.First().img" class="img-responsive" alt="property" />
+                            
+                            }
+                            else
+                            {
+                                <img src="~/Content/images/a.png" class="img-responsive" alt="property" />
+                            
+                            }
+                             }
+                            <div class="popular-text">
+                                <h5>@p.Ad.title</h5>
+                                <a href="@Url.Action("Property", "Home", new {id = @p.Ad.Id })" class="button">$@p.Ad.price</a>
+                                <a href="#@p.Ad.Id" onclick="fav(@p.Ad.Id)" class="button" style="background-color:orange;">Add To Favorites</a>
+                                <div class="detail-bottom">
+                                    <p>@p.Ad.description</p>
+                                    <ul>
+                                        <li class="text-info">Property Type </li>
+                                        <li class="text-info1">@p.Type.name</li>
+                                        <div class="clearfix"></div>
+                                    </ul>
+                                    
+                                    
+                                    <ul>
+                                        <li class="text-info">City </li>
+                                        <li class="text-info1">@p.City.name</li>
+                                        <div class="clearfix"></div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                            count++;
+                            
+                        
+                    }
+                
+                }
+                
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+    function fav(id) {
+       var i = {
+            "id": id
+        };
+        var settings = {
+            type: "POST",
+            url: "Favourite",
+            data: i,
+            datatype: "json",
+            
+        }
+        $.ajax(settings);
+    }
+</script>
+    <!--popular-->
+    

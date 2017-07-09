@@ -1,0 +1,65 @@
+﻿@model List<Real_State.Controllers.Property>
+@{
+    ViewBag.Title = "Ads";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container" style="margin-left:10%">
+    <table class="table" style="width: 80%; margin-left: -6%; ">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>View</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @{
+
+
+
+                foreach (var obj in Model)
+                {
+                    <tr id=@obj.Ad.Id>
+                        <th scope="row" style="vertical-align: middle;"> @obj.Ad.title</th>
+                        <td style="width: 80%; word-break: break-all; vertical-align: middle;">@obj.Ad.description</td>
+                        <td style="width: 80%; word-break: break-all; vertical-align: middle;">@obj.Ad.price</td>
+                        <td style="width: 20%; vertical-align: middle;">
+                            <a href="@Url.Action("Property", "Home", new {id = @obj.Ad.Id })"><i class="fa fa-eye" style="color:green;"></i></a>
+                        </td>
+
+                        <td style="width: 10%; vertical-align: middle;">
+                            <span onclick="delProperty(@obj.Ad.Id)" style=" margin-right:3%; font-size:large; ">
+                                <i class="fa fa-trash" style="color:red;"></i>
+                            </span>
+                        </td>
+                        
+
+                    </tr>
+                }
+            }
+
+
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    function delProperty(id) {
+        $('#' + id).hide();
+        var i = {
+            "id": id
+        };
+        var settings = {
+            type: "POST",
+            url: "DeleteProperty",
+            data: i,
+            datatype: "json",
+
+        }
+        $.ajax(settings);
+    }
+
+</script>

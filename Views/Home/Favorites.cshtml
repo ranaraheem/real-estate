@@ -1,0 +1,80 @@
+﻿@model List<Real_State.Controllers.Property>
+@{
+    ViewBag.Title = "Favorites";
+    Layout = "~/Views/Shared/_PropertyLayout.cshtml";
+}
+
+
+<div class="popular-w3">
+    <div class="container">
+        <h2 class="tittle">Your Favourite Properties</h2>
+        <div class="popular-grids">
+            @{
+                int i = 1;
+                foreach (var p in Model)
+                {
+
+                    <div class="col-md-4 popular-grid" id="@p.Ad.Id">
+                        <h4>Property @i</h4>
+                        
+                        @{
+                    try
+                    {
+                        <img src="~/Content/images/@p.Image.First().img" class="img-responsive" alt="property" style="width: 100%;" />
+                    }
+                    catch (Exception a)
+                    {
+                        <img src="~/Content/images/a.png" class="img-responsive" alt="property" style="width: 100%;" />
+
+                    }
+                        }
+<div class="popular-text">
+                            <h5>@p.Ad.title</h5>
+                            <a href="@Url.Action("Property", "Home", new {id = @p.Ad.Id })" class="button">$@p.Ad.price</a>
+                            <a href="#@p.Ad.Id" onclick="Remfav(@p.Ad.Id)" class="button" style="background-color:red;">Remove From Favorites</a>
+                            <div class="detail-bottom">
+                                <p>@p.Ad.description</p>
+                                <ul>
+                                    <li class="text-info">Property Type </li>
+                                    <li class="text-info1">@p.Type.name</li>
+                                    <div class="clearfix"></div>
+                                </ul>
+
+
+                                <ul>
+                                    <li class="text-info">City </li>
+                                    <li class="text-info1">@p.City.name</li>
+                                    <div class="clearfix"></div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    i++;
+
+
+                }
+
+            }
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function Remfav(id) {
+        $('#'+id).hide();
+        var i = {
+            "id": id
+        };
+        var settings = {
+            type: "POST",
+            url: "RemoveFavourite",
+            data: i,
+            datatype: "json",
+
+        }
+        $.ajax(settings);
+    }
+</script>
+<!--popular-->
+   

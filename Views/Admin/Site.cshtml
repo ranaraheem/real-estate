@@ -1,0 +1,94 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}   
+
+<div style="width:25%; text-align:center; height:160px; border: 2px dashed orange; padding-left:;  padding-top:; font-family:sans-serif;">
+    <h2 style="color:orange;"> Cities </h2>
+    <form action="~/Admin/addCity" method="post">
+        <input type="text" name="cityName" required="true" style="border:1px solid orange; border-radius:4px; " />
+        <input type="submit" name="Add" value="Add" style="border:1px solid orange; border-radius:4px; width:20%; color:#f2f2f2; " />
+    </form>
+         <br /> <br /> 
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="width:80%; border: 1px solid orange; color:orange; font-weight: bolder; font-size: 1.2em; ">
+            Delete
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            @{
+    Real_State.Models.Database1Entities2 db = new Real_State.Models.Database1Entities2();
+    var list = db.cities.ToList();
+    foreach (var obj in list)
+    {
+        var ax = "city" + @obj.Id;
+        <span id=@ax>
+            <li role="presentation" style="font-weight:bold">@obj.name<a role="menuitem" onclick="deleteCity(@obj.Id)"><i class="fa fa-trash" style="float:left;"></i></a></li>
+            <br />
+        </span>
+    }
+}
+        </ul>
+    </div>
+</div>
+
+<br/>
+<br />
+<div style="width:25%;  text-align:center; height:160px; border: 2px dashed orange; padding-left:;  padding-top:; font-family:sans-serif;">
+    <h2 style="color:orange;"> Types </h2>
+    <form action="~/Admin/addType" method="post">
+        <input type="text" name="typeName" required="true" style="border:1px solid orange; border-radius:4px; " />
+        <input type="submit" name="Add" value="Add" style="border:1px solid orange; border-radius:4px; width:20%; color:f2f2f2; " />
+       </form>
+         <br /> <br />
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown" style="width:80%; border: 1px solid orange; color:orange; font-weight: bolder; font-size: 1.2em; ">
+                Delete
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                @{
+
+    var list1 = db.types.ToList();
+    foreach (var obj in list1)
+    {
+        var ax = "type" + @obj.Id;
+        <span id=@ax>
+            <li role="presentation">@obj.name<a role="menuitem" onclick="deleteType(@obj.Id)"><i class="fa fa-trash" style="float:left;"></i></a></li>
+            <br />
+        </span>
+    }
+}            </ul>
+        </div>
+</div>
+
+<script type="text/javascript">
+    function deleteCity(id) {
+        $('#city' + id).hide();
+        var i = {
+            "id": id
+        };
+        var settings = {
+            type: "POST",
+            url: "deleteCity",
+            data: i,
+            datatype:"json",
+            
+        }
+        $.ajax(settings);
+    }
+    function deleteType(id) {
+        $('#type' + id).hide();
+        var i = {
+            "id": id
+        };
+        var settings = {
+            type: "POST",
+            url: "deleteType",
+            data: i,
+            datatype: "json",
+
+        }
+        $.ajax(settings);
+    }
+</script>

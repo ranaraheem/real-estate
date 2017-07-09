@@ -1,0 +1,84 @@
+﻿@model Real_State.Controllers.Property
+    @{
+        ViewBag.Title = "Property";
+       Layout = "~/Views/Shared/propLayout.cshtml";
+    }
+
+    <div class="popular-w3">
+        <div class="container">
+            <h2 class="tittle">Property Description</h2>
+            <div class="popular-grids">
+                <div class="col-md-6 popular-grid">
+                    
+                    <h4>Property  </h4>
+
+                    @{
+                        try { 
+                           <img src="~/Content/images/@Model.Image.First().img.ToString()" class="img-responsive" alt="property" style="width: 100%;" />
+                        }
+                        catch (Exception a)
+                        {
+                            <img src="~/Content/images/a.png" class="img-responsive" alt="property" style="width: 100%;" />
+
+                        }
+                    }
+                     
+                   
+                        
+                    
+                   }
+                     <div class="popular-text">
+                        <h5>@Model.Ad.title</h5>
+                        <a href="Properties" class="button">$@Model.Ad.price</a>
+                        <div class="detail-bottom">
+                            <p>@Model.Ad.description</p>
+                            <ul>
+                                <li class="text-info">Property Type </li>
+                                <li class="text-info1">@Model.Type.name</li>
+                                <div class="clearfix"></div>
+                            </ul>
+                                                        <ul>
+                                <li class="text-info">City </li>
+                                <li class="text-info1">@Model.City.name</li>
+                                <div class="clearfix"></div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popular-grids">
+                <div class="col-md-6 popular-grid">
+                    <a href="properties.html" class="button" style="background-color: purple; text-align: center; font-weight: bold; height: 60px;">Google Map View </a>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12883531.99892336!2d-110.87898441399645!3d37.96794389702427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54eab584e432360b%3A0x1c3bb99243deb742!2sUnited+States!5e0!3m2!1sen!2s!4v1483775117335" width="540" height="945" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--popular-->
+
+    <a href="#" class="button" style="background-color: brown; text-align: center; font-weight: bolder; height: 60px; width: 100%; font-size: 2em;">Property Images </a>
+    <!--banner-->
+    <div class="banner-section">
+        <div class="slider">
+            <div class="callbacks_container">
+                <ul class="rslides" id="slider">
+                    @{
+                        int i =1;
+                        foreach (var obj in @Model.Image)
+                    {
+                        <li>
+                            <img src="~/Content/images/@obj.img" alt="property" >
+                            <div class="caption">
+                                <h3>Image @i </h3>
+                            </div>
+                        </li>
+                        i++;
+                    }
+                    }
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--banner-->

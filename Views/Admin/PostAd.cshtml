@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="form-group">
+    <form method="post" action="~/Admin/PostAd" enctype="multipart/form-data" style="font-weight:bold">
+        Title: <input type="text" required="true" name="title" style="margin-left:9%">
+        <br />
+        <br />
+        Description: <input type="text" required="true" name="description" style="margin-left:4.5%"><br />
+        <br />
+           price: <input type="number" required="true" name="price" style="margin-left:8.5%"><br />
+        <br />
+        City:<select name="city" style="margin-left:9.8%">
+    @{
+        Real_State.Models.Database1Entities2 db = new Real_State.Models.Database1Entities2();
+        var list = db.cities.ToList();
+        foreach (var obj in list)
+        {
+
+            <option value="@obj.Id">@obj.name</option>
+            <br />
+        }
+    }
+</select>
+        <br />
+    <br />
+    Type: <select name="type" style="margin-left:9%">
+    @{
+
+        var list1 = db.types.ToList();
+        foreach (var obj in list1)
+        {
+            <option value="@obj.Id">@obj.name</option>
+            <br />
+        }
+    }
+</select>
+
+
+        <br />
+    <br />
+    Image: <input type="file" name="image" multiple />
+    <br />
+        <br />
+    <input type="submit" value="POST" />
+</form>
+</div>
